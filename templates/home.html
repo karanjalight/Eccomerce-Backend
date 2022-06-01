@@ -1,6 +1,116 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>My Social Login Homepage</h2>
+  
   <p>Hi {{ user.username }}!</p>
-{% endblock %}
+
+  {{category}}
+
+
+  {% for item in category  %}
+
+  <a href=" {% url 'collectionsview' item.slug %}">
+  <br>
+  <img src="{{ item.image.url }}" class="card-img-top" alt="" style="width: 250px; height: 300px;">
+        
+    {{ item.name }}
+
+  </a>
+
+
+  {% endfor %}
+
+
+  
+
+
+
+
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+  
+       <!--    <!-- Links 
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">All     </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?category=Juice">Juices</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?category=Alcohol">Alcohol</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?category=Soda">Soda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?category=Cocktail">Cocktail</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?category=Fresh">Fresh Juice</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?category=Energy">Energy Drinks</a>
+            </li>
+            
+          </ul>
+          <!-- Links 
+
+
+
+           
+  {% for item in ls %}
+
+        <img src="{{ item.image.url }}" class="card-img-top" alt="" style="width: 250px; height: 300px;">
+        
+      
+      </div>
+     
+        
+          <h1>{{ item.name }}</h1>
+
+          
+          
+        
+        <p class="price" style=""><h4>
+          <strong>KSh{{ item.price }}</strong></h4></p>
+        
+        
+
+        <h5 class="font-weight-bold blue-text">
+          
+          {% if item.discount_price %}
+         <strike> KSh{{ item.discount_price }}</strike>
+          {% else %}
+          {{ item.price }}
+          {% endif %}
+        </a>
+        </h5>
+       <!-- <a href="{{ object.get_add_to_cart_url }}" class="grey-text">
+        <p style="border-style: solid; border-radius: 24px;">Add to Cart  <i class="fa fa-shopping-cart w3-margin-right"></i></p>
+        </a>
+      -->
+        
+
+      </div>
+      <!--Card content-->
+
+    </div>
+    <!--Card-->
+
+  </div>
+  <!--Grid column-->
+
+
+ 
+ -->
+  {% endfor %}
+
+
+
+  {% endblock content %}

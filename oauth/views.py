@@ -2,11 +2,19 @@ from django.shortcuts import render,  redirect, reverse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from drinks.models import Product
 
 
-def home(request):
+""" def home(request):
+    category = request.GET.get('category')
+    if category:
+        ls = Product.objects.filter(category=category)
+    else:
+        ls = Product.objects.all()
     
-    return render(request, 'home.html')
+    return render(request, 'home.html' , {'ls': ls})
+ """
+
 
 
 

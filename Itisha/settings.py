@@ -20,15 +20,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #to customize admin page
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+   
 
     'social_django',  # <-- Here social-auth-app-django for facebook
     'oauth',
+    'drinks',
+    #'store',
+    'shop',
 
     
 ]
@@ -120,7 +126,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR/'static']
+
+#STATICFILES_DIRS = [BASE_DIR/'static']
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
 MEDIA_URL ='/image/'
 MEDIA_ROOT = BASE_DIR/'static/image'
 

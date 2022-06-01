@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  <p>Hi {{ user.username }}!</p>
+
+ 
+
+  <a href="">
+  <br>
+  <br>
+
+
+  <div class="product_data">      
+
+    {{ products.name }} <br>
+    <img src="{{ products.product_image.url }}" class="card-img-top" alt="" style="width: 250px; height: 300px;">
+   <br>
+   {{ products.price}} <br>
+   {{ products.description}}
+
+<br><br><br>
+
+   {% if products.quantity > 0   %}
+    <button type="button" class="btn btn-primary me-3 float-start" > Add to cart</button>
+
+   {% endif %}
+   <button type="button" class="btn btn-primary me-3 float-start" > Add to Wishlist</button>
+
+   <br><br>
+
+   <label for="quantity">Quantity</label>
+   <div class="input-group text-centre mb-3" style="width:130px">
+    <div class="input-group-text decrement-btn">-</div>
+    <input type="text" name="quantity" class="form-control qty-input text-center " value="1">
+    <div class="input-group-text increment-btn">+</div>
+
+
+   </div>
+  </div>
+   
+    
+
+
+  </a>
+
+  <br><br>
+  <script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            alert("jQuery is working perfectly.");
+        });      
+    });
+    </script>
+
+
+
+
+
+  {% endblock content %}

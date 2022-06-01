@@ -1,10 +1,7 @@
-import email
-from email.mime import image
-from itertools import product
-from msilib.schema import Class
 from django.db import models
 from django.contrib.auth.models import User
 import uuid
+
 
 
 CATEGORY = (
@@ -14,7 +11,7 @@ CATEGORY = (
     ('Cocktail', 'Cocktail'),
     ('Fresh', 'Fresh Juices'),
     ('Energy', 'Energy Drinks'),
-    ('E', 'Beddings'),
+    
     
 )
 
@@ -38,7 +35,6 @@ class Product(models.Model):
   def __str__(self) :
     return self.name
 
-
 class Cart(models.Model):
   customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
   cart_id = models.UUIDField(default=uuid.uuid4 , unique=True , editable=False)
@@ -48,16 +44,13 @@ class Cart(models.Model):
     return str(self.id)
 
 
-
 class Cartitems(models.Model):
   cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-  product = models.ForeignKey(Cart, on_delete=models.CASCADE)
+  product = models.ForeignKey(Product, on_delete=models.CASCADE)
   quantity = models.IntegerField(default=0)
 
   def __str__(self) :
     return self.product.name
-
-  
 
 class ShippingAddress(models.Model):
   customer = models.ForeignKey(Customer ,  on_delete=models.CASCADE)
@@ -68,5 +61,7 @@ class ShippingAddress(models.Model):
 
   def __str__(self) :
     return self.address
+
+
 
 

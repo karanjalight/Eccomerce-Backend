@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  <p>Hi {{ user.username }}!</p>
+
+  {{category_name.name}}
+
+  {% for item in products  %}
+
+  <a href="  {% url 'productview' item.category.slug  item.slug    %} ">
+  <br>
+  <img src="{{ item.product_image.url }}" class="card-img-top" alt="" style="width: 250px; height: 300px;">
+  <br>
+        
+    {{ item.name }} <br>
+    {{ item.price }} <br>
+    
+
+
+  </a>
+
+
+  {% endfor %}
+
+
+
+  {% endblock content %}
