@@ -1,4 +1,4 @@
-$(document).ready(function() {
+ $(document).ready(function() {
   $('.decrement-btn ').click(function (e) {
     e.preventDefault();
 
@@ -11,4 +11,8 @@ $(document).ready(function() {
     }
   });
 
-} );
+} ); 
+
+console.log(
+  "hello world!"
+)

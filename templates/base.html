@@ -11,6 +11,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    
+
+    
+
+
 
     
 
@@ -18,8 +23,9 @@
   </head>
 
   <body>
+    
 
-    <img src="{%  static ''  %}" alt="">
+    <img src="{%  static 'image/uploads/20220530091756glassjuice.jpg'  %}" alt="" width="300" height="100" >
 
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary " style="background-color: red ; ">
       <a class="navbar-brand" href="#">Itisha</a>
@@ -29,10 +35,10 @@
       <div class="collapse navbar-collapse" id="navbarText" s>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href=" # ">Collections</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
@@ -63,8 +69,9 @@
 
 
     
-    <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
-    <script src="{% static '/js/custom.js' %}"></script>
+    <script src="{% static 'image/js/jquery-3.6.0.min.js' %}"></script>
+
+    <script src="{% static '/image/js/custom.js' %}"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
