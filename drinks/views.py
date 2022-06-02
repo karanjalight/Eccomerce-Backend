@@ -8,13 +8,8 @@ from .models import Cartitems, Product , Cart
 
  
 def home(request):
-    category = request.GET.get('category')
-    if category:
-        ls = Product.objects.filter(category=category)
-    else:
-        ls = Product.objects.all()
-    
-    return render(request, 'home.html' , {'ls': ls})
+   
+    return render(request, 'index-2.html' )
 
 def cart(request):
     if request.user.is_authenticated:

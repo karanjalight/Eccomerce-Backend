@@ -1,9 +1,10 @@
+from email import message
 from django.shortcuts import render,  redirect, reverse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from drinks.models import Product
-
+from django.contrib import messages
 
 """ def home(request):
     category = request.GET.get('category')
@@ -24,6 +25,7 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Registered Succesfully!"   )
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
             user = authenticate(username = username, password = password)

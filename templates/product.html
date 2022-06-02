@@ -2,23 +2,49 @@
 
 {% block content %}
   
-  <p>Hi {{ user.username }}!</p>
+  
 
-  {{category_name.name}}
+  <h1>{{category_name.name}} </h1>
 
   {% for item in products  %}
 
-  <a href="  {% url 'productview' item.category.slug  item.slug    %} ">
+ {% comment %}  <a href="  {% url 'productview' item.category.slug  item.slug    %} ">
   <br>
   <img src="{{ item.product_image.url }}" class="card-img-top" alt="" style="width: 250px; height: 300px;">
   <br>
         
     {{ item.name }} <br>
-    {{ item.price }} <br>
+    {{ item.price }} <b {% endcomment %}
     
 
 
   </a>
+
+
+      <div class="row ">
+      <div class="col-md-3 ">
+
+
+        <div class="container">
+          <a href="{% url 'productview' item.category.slug  item.slug    %} ">
+          <div class="card" style="width:200px">
+            <img class="card-img-top" src="{{ item.product_image.url }}" alt="Card image" style="width:100%">
+            <div class="card-body">
+              
+              <p class="card-text">
+                {{ item.name }}
+                <br>
+                {{ item.price }}
+              </p>
+              
+             
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      
+    </div>
 
 
   {% endfor %}

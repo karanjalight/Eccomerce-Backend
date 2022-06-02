@@ -22,12 +22,12 @@ urlpatterns = [
 
 
 
-    path('' , drink.home, name='home'),
-    path('cart' , drink.cart, name='cartitem'),
+    path('home' , drink.home, name='home-page'),
+   
     
 
     
-   
+   #Django auth
     path('login/', auth_views.LoginView.as_view(), name='login'),  #<--to login
     path('logout/', auth_views.LogoutView.as_view(), name='logout'), #<--to logout
     path('register/', views.register, name='register'), #<--to register new users
