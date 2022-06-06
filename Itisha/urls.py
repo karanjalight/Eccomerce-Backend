@@ -9,6 +9,8 @@ from drinks import views as drink
 
 #for the shop app best to rem=name it as the app name
 from shop import views as shop
+from shop import cart as cart
+
 
 #importing  inbuilt user authentication
 from django.contrib.auth import views as auth_views
@@ -27,6 +29,7 @@ urlpatterns = [
     path('' , shop.home, name='home'),
     path('products/<str:slug>', shop.collectionsview, name='collectionsview'),
     path('products/<str:cate_slug>/<str:prod_slug>',shop.productview, name='productview'),
+    path("add-to-cart", cart.addtocart, name='addtocart'),
 
 
     
