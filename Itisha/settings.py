@@ -146,7 +146,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Login & Logout URLs
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = '/login/'
+LOGOUT_REDIRECT_URL = 'home'
 
 #facebook AUTH SETTINGS
 AUTHENTICATION_BACKENDS = (

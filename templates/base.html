@@ -96,6 +96,13 @@
 
         {% comment %} fas fa icons 4 {% endcomment %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        
+        <!-- CSS FOR ALERTIFY -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
         
     </head>
     <body>
@@ -238,10 +245,33 @@
                                           
 
                                             <li><a href="contact.html">Contact</a></li>
-                                            <!-- Begin Header Bottom Menu Information Area -->
+
+                                            {% if request.user.is_authenticated %}
+
+                                            <li><a href="{% url 'logout' %}">logout</a></li>
+
+                                            {% else %}
+
+                                            <li><a href="{% url 'login' %}">login</a></li>
+
+                                            {% endif %}
+
+
+                                            
+                                            {% if request.user.is_authenticated %}
+
                                             <li class="hb-info f-right p-0 d-sm-none d-lg-block">
                                                 <span>Hi {{ user.username }}!</span>
                                             </li>
+
+                                            {% else %}
+
+                                           
+                                            {% endif %}
+
+
+                                            <!-- Begin Header Bottom Menu Information Area -->
+                                            
                                             <!-- Header Bottom Menu Information Area End Here -->
                                         </ul>
                                     </nav>
@@ -436,8 +466,16 @@
       <!-- Body Wrapper End Here -->
       <!-- jQuery-V1.12.4 -->
 
-
       <script src="{% static '/image/js/vendor/jquery-1.12.4.min.js' %}"></script>
+
+      <!-- JavaScript for alertify-->
+      <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+      
+      <script>
+        alertify.set('notifier','position', 'bottom-right');
+        alertify.success('Hello'));
+      </script>
+
       
       <script src="{% static '/image/js/vendor/jquery-1.12.4.min.js' %}"></script>
       <!-- Popper js -->

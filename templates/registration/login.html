@@ -6,8 +6,11 @@
         <h1 class="mt-5 mb-3">Login</h1>
       </div>
     </div>
+
+    
     <div class="row">
       <div class="col-md-6 offset-md-3 mt-3">
+        <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a> <br> <br>
         <form method="post" action="{% url 'login' %}">
           {% csrf_token %}
           <div class="form-group">
@@ -39,7 +42,9 @@
           <button type="submit" class="btn btn-primary">Login</button>
         </form>
 
-        <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+        <p>Don't have an account?<a href="{% url 'register' %}"> Register Here </a></p>
+
+        
       </div>
     </div>
   </div>
