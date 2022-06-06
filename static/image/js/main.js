@@ -489,6 +489,9 @@ $('.addToCartBtn').click(function (e){
 	var product_id = $(this).closest("product_data").find("prod_id").val();
 	var product_qty = $(this).closest("product_data").find("qty-input").val();
 	var token= $('input[name=csrfmiddlewaretoken]').val();
+	
+
+
 	$.ajax({
 		method:"POST",
 		url: "/add-to-cart",
@@ -499,7 +502,7 @@ $('.addToCartBtn').click(function (e){
 
 		},
 		success:function (response) {
-			console.log(response)
+			console.log(product_id)
 
 		}
 		
