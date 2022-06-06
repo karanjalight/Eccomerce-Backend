@@ -7,24 +7,157 @@
   {% comment %} {{category}} {% endcomment %}
 
 
-  {% for item in category  %}
-
- 
-  <br>
   
-        
-    
 
+<!-- Header Bottom Area End Here -->
+<!-- Begin Mobile Menu Area -->
+<div class="mobile-menu-area d-lg-none d-xl-none col-12">
+    <div class="container"> 
+        <div class="row">
+            <div class="mobile-menu">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Mobile Menu Area End Here -->
+</header>
+<!-- Header Area End Here -->
+<!-- Begin Slider With Category Menu Area -->
+<div class="slider-with-banner">
+<div class="container">
+    <div class="row">
+        <!-- Begin Category Menu Area -->
+        <div class="col-lg-3">
+            <!--Category Menu Start-->
+            <div class="category-menu">
+                <div class="category-heading">
+                    <h2 class="categories-toggle"><span>categories</span></h2>
+                </div>
+                <div id="cate-toggle" class="category-menu-list">
+                  
+                  
+                    <ul>
+                      {% for item in category  %}                        
+                        <li><a href="{% url 'collectionsview' item.slug %}"> {{ item.name }} </a></li>
+                        {% comment %} <li><a href="#">Alcohol</a></li>
+                        <li><a href="#">Soda</a></li>
+                        <li><a href="#">Cocktail</a></li>
+                        <li><a href="#">Fresh Juice</a></li>
+                        <li><a href="#">Energy Drink</a></li> {% endcomment %}
+                        {% endfor %}
+                        <li class="rx-child"><a href="#">Not yet available, sorry!</a></li>
+                        <li class="rx-child"><a href="#">Not yet available, sorry!</a></li>
+                        <li class="rx-parent">
+                            <a class="rx-default">More Categories</a>
+                            <a class="rx-show">Less Categories</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--Category Menu End-->
+        </div>
+        <!-- Category Menu Area End Here -->
+        <!-- Begin Slider Area -->
+        <div class="col-lg-9" >
+            <div class="slider-area pt-sm-30 pt-xs-301" >
+                <div class="slider-active owl-carousel">
+                    <!-- Begin Single Slide Area -->
+                    <div class="single-slide align-center-left animation-style-02 bg-4"
+                     style="background-image: url(image/freshjuice.jpg);   " >
+                        <div class="slider-progress"></div>
+                        <div class="slider-content" style="color: #fff !important; ">
+                            <h5 style="color: #000 !important;">Sale Offer <span>-20% Off</span> This Week</h5>
+                            <h2>JUICE</h2>
+                            <h3>Starting at <span> <strong> Ksh 150</span> </strong></h3>
+                            <div class="default-btn slide-btn">
+                                <a class="links" href="shop-left-sidebar.html">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Slide Area End Here -->
+                    <!-- Begin Single Slide Area -->
+                    <div class="single-slide align-center-left animation-style-01 bg-5"  style="background-image: url(image/alcohol.jpg);   "  >
+                        <div class="slider-progress"></div>
+                        <div class="slider-content" style="color: #fff !important;">
+                            <h5>Sale Offer <span>Black Friday</span> This Week</h5>
+                            <h2>ALCOHOL</h2>
+                            <h3>Starting at <span>Ksh 250</span></h3>
+                            <div class="default-btn slide-btn">
+                                <a class="links" href="shop-left-sidebar.html">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Slide Area End Here -->
+                    <!-- Begin Single Slide Area -->
+                    <div class="single-slide align-center-left animation-style-02 bg-6" style="background-image: url(image/cokecans.jpg);   "  >
+                        <div class="slider-progress"></div>
+                        <div class="slider-content" style="color: #fff !important;">
+                            <h5>Sale Offer <span>-10% Off</span> This Week</h5>
+                            <h2>SODA</h2>
+                            <h3>Starting at <span>Ksh 70</span></h3>
+                            <div class="default-btn slide-btn">
+                                <a class="links" href="shop-left-sidebar.html">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Slide Area End Here -->
+                </div>
+            </div>
+        </div>
+        <!-- Slider Area End Here -->
+    </div>
+</div>
+</div>
+<!-- Slider With Category Menu Area End Here -->
+
+
+
+<section class="product-area li-laptop-product Special-product pt-60 pb-45">
+                <div class="container">
+                    <div class="row">
+                        <!-- Begin Li's Section Area -->
+                        <div class="col-lg-12">
+                            <div class="li-section-title">
+                                <h2>
+                                    <span> Categories</span>
+                                </h2>
+                            </div>
+                            <div class="row">
+                                <div class="special-product-active owl-carousel">
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li's Section Area End Here -->
+                    </div>
+                </div>
+            </section>
+
+            <div class="container-fluid">
+  
+              <div class="row">
+                <div class="col" style="background-color:lavender;">
+
+                
+                </div>
+                <div class="col" style="background-color:orange;">.col</div>
+                <div class="col" style="background-color:lavender;">.col</div>
+              </div>
+            </div>
+
+{% for item in category  %}
 
 
   </a>
 
 
-  <section>
-    <div class="container container-fluid">
-      <div class="row">
-          <div class=" col-md-3 "> 
 
+      <div class="row" >
+          <div class=" col-md-3 " style="display: inline-block"> 
 
             <div class="container">
               <a href=" {% url 'collectionsview' item.slug %}">
@@ -39,7 +172,7 @@
                 </div>
               </div>
             </a>
-              <br>
+              
               
               
             </div>
@@ -50,99 +183,12 @@
     </div>
   </section>
 
-
   {% endfor %}
-
-
-  
-
-
-
-
-
-
-
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-
-  
-       <!--    <!-- Links 
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">All     </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?category=Juice">Juices</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?category=Alcohol">Alcohol</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?category=Soda">Soda</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?category=Cocktail">Cocktail</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?category=Fresh">Fresh Juice</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?category=Energy">Energy Drinks</a>
-            </li>
-            
-          </ul>
-          <!-- Links 
-
-
-
-           
-  {% for item in ls %}
-
-        <img src="{{ item.image.url }}" class="card-img-top" alt="" style="width: 250px; height: 300px;">
-        
-      
-      </div>
-     
-        
-          <h1>{{ item.name }}</h1>
-
-          
-          
-        
-        <p class="price" style=""><h4>
-          <strong>KSh{{ item.price }}</strong></h4></p>
-        
-        
-
-        <h5 class="font-weight-bold blue-text">
-          
-          {% if item.discount_price %}
-         <strike> KSh{{ item.discount_price }}</strike>
-          {% else %}
-          {{ item.price }}
-          {% endif %}
-        </a>
-        </h5>
-       <!-- <a href="{{ object.get_add_to_cart_url }}" class="grey-text">
-        <p style="border-style: solid; border-radius: 24px;">Add to Cart  <i class="fa fa-shopping-cart w3-margin-right"></i></p>
-        </a>
-      -->
-        
-
-      </div>
-      <!--Card content-->
-
-    </div>
-    <!--Card-->
-
-  </div>
-  <!--Grid column-->
-
+ 
 
  
- -->
-  {% endfor %}
+
+
 
 
 

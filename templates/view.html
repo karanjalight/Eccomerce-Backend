@@ -3,42 +3,119 @@
 
 {% block content %}
   
-  <p>Hi {{ user.username }}!</p>
+  
 
- 
+  <!-- content-wraper start -->
+            <div class="content-wraper">
+                <div class="container" >
+                    <div class="row single-product-area">
+                        <div class="col-lg-5 col-md-6" style= "width:50%;">
+                          <h4 style="{% comment %} padding-left:45px; {% endcomment %} color: #0363cd; "> {{ products.name}}</h4>
 
-  <a href="">
-  <br>
-  <br>
+                           <!-- Product Details Left -->
+                            <div class="product-details-left" style= "width:90%;">
+                                <div class="product-details-images slider-navigation-1">
+                                    <div class="lg-image">
+                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/1.jpg" data-gall="myGallery">
+                                            <img src="{{ products.product_image.url }}" alt="product image">
+                                        </a>
+                                    </div>
+                                    <div class="lg-image">
+                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/2.jpg" data-gall="myGallery">
+                                            <img src="{{ products.product_image.url }}" alt="product image">
+                                        </a>
+                                    </div>
+                                    <div class="lg-image">
+                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/3.jpg" data-gall="myGallery">
+                                            <img src="{{ products.product_image.url }}" alt="product image">
+                                        </a>
+                                    </div>
+                                    <div class="lg-image">
+                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/4.jpg" data-gall="myGallery">
+                                            <img src="{{ products.product_image.url }}" alt="product image">
+                                        </a>
+                                    </div>
+                                    <div class="lg-image">
+                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/5.jpg" data-gall="myGallery">
+                                            <img src="{{ products.product_image.url }}" alt="product image">
+                                        </a>
+                                    </div>
+                                    <div class="lg-image">
+                                        <a class="popup-img venobox vbox-item" href="images/product/large-size/6.jpg" data-gall="myGallery">
+                                            <img src="{{ products.product_image.url }}" alt="product image">
+                                        </a>
+                                    </div>
+                                </div>
+                               {% comment %}  <div class="product-details-thumbs slider-thumbs-1">                                        
+                                    <div class="sm-image"><img src="{{ products.product_image.url }}" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="{{ products.product_image.url }}" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="{{ products.product_image.url }}" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="{{ products.product_image.url }}" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="{{ products.product_image.url }}" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="{{ products.product_image.url }}" alt="product image thumb"></div>
+                                </div> {% endcomment %}
+                            </div>
+                            <!--// Product Details Left -->
+                        </div>
 
+                        <div class="col-lg-7 col-md-6">
+                            <div class="product-details-view-content pt-60">
+                                <div class="product-info">
+                                    <h2> {{ products.name}}</h2>
+                                    <div class="rating-box pt-20">
+                                        <ul class="rating rating-with-review-item">
+                                            <li><i class="fa fa-star-o"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="price-box pt-20">
+                                        <span class="new-price new-price-2"> {{ products.price}}</span>
+                                    </div>
+                                    <div class="product-desc">
+                                        <p>
+                                            <span> {{ products.description}}
+                                            </span>
+                                        </p>
+                                    </div>
+                                   
+                                    <div class="single-add-to-cart">
+                                        <form action="#" class="cart-quantity">
+                                            <div class="quantity">
+                                                <label>Quantity</label>
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" value="1" type="text">
+                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                </div>
+                                            </div>
+                                            {% if products.quantity > 0   %}
+                                            <button class="add-to-cart" type="submit">Add to cart</button>
+                                            {% endif    %}
+                                        </form>
+                                    </div>
 
-  <div class="product_data">      
-
-    {{ products.name }} <br>
-    <img src="{{ products.product_image.url }}" class="card-img-top" alt="" style="width: 250px; height: 300px;">
-   <br>
-   {{ products.price}} <br>
-   {{ products.description}}
-
-<br><br><br>
-
-   {% if products.quantity > 0   %}
-    <button type="button" class="btn btn-primary me-3 float-start" > Add to cart</button>
-
-   {% endif %}
-   <button type="button" class="btn btn-primary me-3 float-start" > Add to Wishlist</button>
-
-   <br><br>
-
-   <label for="quantity">Quantity</label>
-   <div class="input-group text-centre mb-3" style="width:130px">
-    <button class="input-group-text decrement-btn">-</button>
-    <input type="text" name="quantity" class="form-control qty-input text-center " value="1">
-    <button class="input-group-text increment-btn">+</button>
-
-
-   </div>
-  </div>
+                                    <div class="product-additional-info pt-25">
+                                        <a class="wishlist-btn" href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a>
+                                        <div class="product-social-sharing pt-25">
+                                            <ul>
+                                                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
+                                                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
+                                                <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i>Google +</a></li>
+                                                <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <!-- content-wraper end -->
 
   <script >
     console.log("wozza:");
@@ -51,6 +128,9 @@
   </a>
 
   <br><br>
+
+
+
 
 
 
