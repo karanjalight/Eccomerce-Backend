@@ -7,10 +7,12 @@ def addtocart(request):
   if request.method =='POST':
 
      if request.user.is_authenticated:
-      prod_id = int(request.POST.get('product_id'))
+       print('hello world')
+       prod_id = request.POST.get('product_id')
+       print(prod_id )
      
-      product_check = Product.objects.get( id = prod_id)
-      if (product_check):
+       product_check = Product.objects.get( id = prod_id)
+       if (product_check):
         if (Cart.objects.filter(user=request.user.id, product_id =prod_id)):
           return JsonResponse({'status':"Item added already!"})
 
@@ -25,7 +27,7 @@ def addtocart(request):
           else :
             return JsonResponse({'status':"AVAILABLE"})
       
-      else: 
+       else: 
         return JsonResponse({'status':"Sorry! Product does not exist"})
 
 

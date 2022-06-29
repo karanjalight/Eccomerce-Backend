@@ -468,8 +468,10 @@ Note: main.js, All Default Scripting Languages For This Theme Included In This F
 /*----------------------------------------*/
  $(".cart-plus-minus").append('<div class="dec qtybutton"><i class="fa fa-angle-down"></i></div><div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>');
  $(".qtybutton").on("click", function() {
+
     var $button = $(this);
     var oldValue = $button.parent().find("input").val();
+	console.log("wangui")
     if ($button.hasClass('inc')) {
        var newVal = parseFloat(oldValue) + 1;
     } else {
@@ -486,8 +488,8 @@ Note: main.js, All Default Scripting Languages For This Theme Included In This F
 $('.addToCartBtn').click(function (e){
 	e.preventDefault(); 
 
-	var product_id = $(this).closest("product_data").find("prod_id").val();
-	var product_qty = $(this).closest("product_data").find("qty-input").val();
+	var product_id = $(this).closest(".product_data").find(".prod_id").val();
+	var product_qty = $(this).closest(".product_data").find(".qty-input").val();
 	var token= $('input[name=csrfmiddlewaretoken]').val();
 	
 
@@ -503,6 +505,7 @@ $('.addToCartBtn').click(function (e){
 		},
 		success:function (response) {
 			console.log(product_id)
+			console.log(product_qty)
 
 		}
 		

@@ -86,7 +86,7 @@
 
                                         <form action="#" class="cart-quantity">
                                             {% csrf_token %}
-                                            <input type="hidden" value="{{ product.id }}" class="prod_id">
+                                            <input type="hidden" value="{{ products.id }}" class="prod_id" id="product_id"> 
                                             <div class="quantity">
                                                 <label>Quantity</label>
                                                 <div class="cart-plus-minus">
