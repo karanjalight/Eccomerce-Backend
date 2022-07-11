@@ -1,89 +1,72 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- Quantity and Price Section -->
-<div class = 'container' style = "width: 70%">
-    <table class="table table-light table-hover">
-        <thead>
-          <tr>
-            <th scope="col"><a href="{% url 'home' %}"><button type="button" class="btn btn-warning btn-lg">Continue Shopping →</button> </a></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-         
-          <tr>
-            <th scope="row"><h3><strong>Items: {{cart.get_itemtotal}}</strong></h3></th>
-            <td></td>
-            <td><h3><strong>Total: {{cart.get_cart_total|floatformat:2}}</strong></h3></td>
-            <!-- <td></td> -->
-           
-          </tr>
+
+
+{% for item in cart %}
+
+
+<div class="card" style = " margin-bottom: 1%; margin-right: 19%; margin-left: 19%;">
+  <div class="card-body">
+
+      <div class="row">
+        <div class="col-sm-3 ">
+          <div id = "cart_image"><img src = {{item.product.product_image.url}} height ="70px" width= "90px"></div>
+        </div>
+
+
+
+        <div class="col-sm-3 ">
+          {{item.product.name}}
+        </div>
+
+
+        <div class="col-sm-3 ">
+          {{item.product.price}}
+        </div>
+
+        <div class="col-sm-3 ">
           
-        </tbody>
-      </table>
+          <div class=" product_data">
+            
+               
+               
+               
+                    <form action="#" class="cart-quantity">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ products.id }}" class="prod_id" id="product_id"> 
+                        
+                        <div class="quantity">
+                            <label>Quantity</label>
+                            <div class="cart-plus-minus">
+                                <input class="cart-plus-minus-box qty-input" value="1" type="text">
+                                <button class="dec qtybutton"><i class="fa fa-angle-down"></i></button >
+                                <button  class="inc qtybutton"><i class="fa fa-angle-up"></i></button >
+                            </div>
+                        </div>
+                        {% comment %} {% if products.quantity > 0   %}
+                        <button class="add-to-cart addToCartBtn" type="submit">Add to cart</button>
+                        {% endif    %} {% endcomment %}
+                    </form>
+                </div>
+
+            
+                
+                
+                
+
+        </div>
+
+
+      </div>
     </div>
 
-
-    <!-- Cart Section -->
-<div class = 'container' style = 'margin-top: 50px; width: 70%'>
-<table class="table table-light table-hover">
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col"><h3><strong>Item</strong></h3></th>
-        <th scope="col"><h3><strong>Price</strong></h3></th>
-        <th scope="col"><h3><strong>Quantity</strong></h3></th>
-        <th scope="col"><h3><strong>Total</strong></h3></th>
-      </tr>
-    </thead>
-    <tbody>
-
-      {% for item in cart %}
-      <tr>
-        <th scope="row"><div id = "cart_image"><img src = {{item.product.product_image.url}} height ="70px" width= "90px"></div></th>
-        <td><h3>{{item.product.name}}</h3></td>
-        <td><h3>{{item.product.price}}</h3></td>
-        
-        
-        {% comment %} <td><input type = 'number' class = 'quantity' value = "{{item.product_qty}}" style = 'width: 50px; padding-left: 5px'></td>
-         {% endcomment %}
-        
-        
-        <td>
-          <form action="#" class="cart-quantity">
-            {% csrf_token %}
-            <input type="hidden" value="{{ products.id }}" class="prod_id" id="product_id"> 
-            <div class="quantity">
-            {% if item.product.quantity >= item.product_qty %}
-                <div class="cart-plus-minus">
-                    <input class="cart-plus-minus-box qty-input" value="{{item.product_qty}}" type="text">
-                    <button class="dec qtybutton changeQuantity"><i class="fa fa-angle-down"></i></button>
-                    <div class="inc qtybutton changeQuantity "><i class="fa fa-angle-up"></i></div>
-                </div>
-            </div>
-            {% else %}
-              <p> out of stock.</p>
-            {% endif %}
-
-            {% if products.quantity > 0   %}
-            <button class="add-to-cart addToCartBtn" type="submit">Add to cart</button>
-            {% endif %}
-        </form>
-        </td>
-
-
-
-
-
-        <td><h3>{{item.get_total | floatformat:2}}</h3></td>
-      </tr>
-      {% endfor %}
-      
-      
-    </tbody>
-  </table>
 </div>
+
+
+
+{% endfor %}
+
+
+
 {% endblock %}

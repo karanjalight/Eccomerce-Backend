@@ -521,6 +521,9 @@ $('.addToCartBtn').click(function (e){
 $('.changeQuantity').click(function (e){
 	e.preventDefault(); 
 
+	
+	console.log("bitches for breakfast")
+
 	var product_id = $(this).closest(".product_data").find(".prod_id").val();
 	var product_qty = $(this).closest(".product_data").find(".qty-input").val();
 	var token= $('input[name=csrfmiddlewaretoken]').val();
