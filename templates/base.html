@@ -103,6 +103,26 @@
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
         <!-- Default theme -->
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+
+
+        <style type="text/css" >
+            *{
+                
+            }
+
+            .flex-container{
+                width: 100%;
+                height: auto;
+                display: flex !important;
+                
+            }
+            .flex-box{
+                width : 200px ;
+                height : 500px;
+                padding-left : 20%;
+            }
+
+        </style>
         
     </head>
     <body>
@@ -126,7 +146,7 @@
                                  background-repeat: no-repeat;
 	                             background-position: center centre;
                                  width: auto;">
-                                    <a href="index.html">
+                                    <a href="#">
 
 
                                         <img src="{%  static 'image/itisha_logo_long.png'  %}"" alt="" height="50px; width 200px ; margin ">
@@ -171,13 +191,65 @@
                                         <li class="hm-minicart">
                                             <div class="hm-minicart-trigger">
                                                 <span class="item-icon"></span>
+
+                                                {% if request.user.is_authenticated %}
+
                                                 <span class="item-text"> Ksh 640
                                                     <span class="cart-item-count">2</span>
                                                 </span>
                                             </div>
                                             <span></span>
                                             <div class="minicart">
+                                                <p class="minicart-total">SUBTOTAL: <span> Ksh 640</span></p>
+                                                <div class="minicart-button">
+                                                    <a href="{% url 'cart' %}" class="li-button li-button-dark li-button-fullwidth li-button-sm">
+                                                        <span>View Full Cart</span>
+                                                    </a>
+                                                    <a href="#" class="li-button li-button-fullwidth li-button-sm">
+                                                        <span>Checkout</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+    
+                                                {% else %}
+                                                   
+                                                <span class="item-text"> Ksh 640
+                                                    <span class="cart-item-count">2</span>
+                                                </span>
+                                            </div>
+                                            <span></span>
+                                            <div class="minicart">
+                                                <p class="minicart-total">SUBTOTAL: <span> <a href="{% url 'login' %}">login</a></span></p>
+                                                <div class="minicart-button">
+                                                    <a href="{% url 'cart' %}" class="li-button li-button-dark li-button-fullwidth li-button-sm">
+                                                        <span>View Full Cart</span>
+                                                    </a>
+                                                    <a href="#" class="li-button li-button-fullwidth li-button-sm">
+                                                        <span>Checkout</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+    
+                                                {% endif %}
+
+
+
+                                                 
+
+
+
+
+
+                                               
+
+                                                
+
+                                                {% comment %} 
+
+                                                THIS WILL BE USED TO SHOW THE FEW ITEMS ADDED TO CART
+                                                
                                                 <ul class="minicart-product-list">
+
                                                     <li>
                                                         <a href="single-product.html" class="minicart-product-image">
                                                             <img src="images/product/small-size/3.jpg" alt="cart products">
@@ -202,17 +274,11 @@
                                                             <i class="fa fa-close"></i>
                                                         </button>
                                                     </li>
-                                                </ul>
-                                                <p class="minicart-total">SUBTOTAL: <span> Ksh 640</span></p>
-                                                <div class="minicart-button">
-                                                    <a href="checkout.html" class="li-button li-button-dark li-button-fullwidth li-button-sm">
-                                                        <span>View Full Cart</span>
-                                                    </a>
-                                                    <a href="checkout.html" class="li-button li-button-fullwidth li-button-sm">
-                                                        <span>Checkout</span>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                                </ul> {% endcomment %}
+
+
+
+                                               
                                         </li>
                                         <!-- Header Mini Cart Area End Here -->
                                     </ul>

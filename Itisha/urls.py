@@ -30,6 +30,8 @@ urlpatterns = [
     path('products/<str:slug>', shop.collectionsview, name='collectionsview'),
     path('products/<str:cate_slug>/<str:prod_slug>',shop.productview, name='productview'),
     path("add-to-cart", cart.addtocart, name='addtocart'),
+    path("cart", cart.viewcart , name='cart'),
+    path("update-cart", cart.updatecart, name= 'updatecart'),
 
 
     

@@ -471,7 +471,7 @@ Note: main.js, All Default Scripting Languages For This Theme Included In This F
 
     var $button = $(this);
     var oldValue = $button.parent().find("input").val();
-	console.log("wangui")
+	console.log("wangui wa qty buttons")
     if ($button.hasClass('inc')) {
        var newVal = parseFloat(oldValue) + 1;
     } else {
@@ -499,6 +499,7 @@ $('.addToCartBtn').click(function (e){
 		url: "/add-to-cart",
 		data : {
 			'product_id': product_id,
+			
 			'product_qty': product_qty,
 			csrfmiddlewaretoken: token,
 
@@ -506,12 +507,47 @@ $('.addToCartBtn').click(function (e){
 		success:function (response) {
 			console.log(product_id)
 			console.log(product_qty)
+			
 
 		}
 		
 	});
 
 });
+
+
+
+
+$('.changeQuantity').click(function (e){
+	e.preventDefault(); 
+
+	var product_id = $(this).closest(".product_data").find(".prod_id").val();
+	var product_qty = $(this).closest(".product_data").find(".qty-input").val();
+	var token= $('input[name=csrfmiddlewaretoken]').val();
+	
+
+
+	$.ajax({
+		method:"POST",
+		url: "/update-cart",
+		data : {
+			'product_id': product_id,
+			
+			'product_qty': product_qty,
+			csrfmiddlewaretoken: token,
+
+		},
+		success:function (response) {
+			console.log(product_id)
+			console.log(product_qty)
+			
+
+		}
+		
+	});
+
+});
+
 
 
 

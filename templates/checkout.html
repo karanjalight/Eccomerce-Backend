@@ -1,0 +1,124 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  
+
+  <!-- content-wraper start -->
+  {% if cart %}
+
+     {% for item in cart %}
+            <div class="content-wraper">
+                <div class="container" >
+
+                  <div class="card" style="width: 40rem; height: 20%;   margin:30px;">
+                    <div class="card-body">
+
+                      <div class="card-image" style="width: 15rem; height: 10%; ">
+                        <img src="{{ item.product.product_image.url }}" class="card-img" alt="..."  height: "700px" width="70px">
+
+                        <button type="button" class="btn btn-warning d-flex justify-content-center" style="width: 12rem; margin: 15px;">{{ item.product.name }} | {{ item.product.price }}</button>
+                        <button type="button" class="btn btn-success d-flex justify-content-center" style="width: 12rem; margin: 15px;"> Remove Item</button>
+                      
+                        
+                        
+                        <div class="single-add-to-cart">
+                          <form action="#" class="cart-quantity">
+                              {% csrf_token %}
+                              <input type="hidden" value="{{ products.id }}" class="prod_id" id="product_id"> 
+                              <div class="quantity">
+                                  <label>Quantity</label>
+                                  <div class="cart-plus-minus">
+                                      <input class="cart-plus-minus-box qty-input" value="1" type="text">
+                                      <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                      <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                  </div>
+                              </div>
+                              {% if products.quantity > 0   %}
+                              <button class="add-to-cart addToCartBtn" type="submit">Add to cart</button>
+                              {% endif    %}
+                          </form>
+                        </div>
+                        
+                      </div>
+                        
+                        
+                      </div>
+
+                      
+                      
+                      
+                    </div>
+                  </div>
+                    
+                    
+
+                                       
+
+
+
+                    
+                        
+                        
+
+                       
+                     
+                    
+                        
+
+                      
+                          
+                     {% endfor %}
+
+                     {% else %}
+
+                                <h4> Your cart is empty  </h4>
+
+
+                     {% endif %}
+                          {% comment %} <br>            
+                            
+
+                            
+
+
+
+                                
+
+                                
+                                {{ item.product.name }}
+                                {{ item.product.price }}
+
+                                <br>                               
+
+
+                                
+
+
+                            
+                        </div>  {% endcomment %}
+            </div>
+            <!-- content-wraper end -->
+
+  <script >
+    console.log("wozza:");
+    
+  </script >
+   
+    
+
+
+  </a>
+
+  <br><br>
+
+
+
+
+
+
+
+
+
+  {% endblock content %}

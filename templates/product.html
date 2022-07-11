@@ -4,37 +4,59 @@
   
   
 
-  <h1>{{category_name.name}} </h1>
+  
+<h1 style="text-align:centre; padding-left: 380px; padding-bottom: 50px; ">{{category_name.name}} </h1> 
+{% for item in products  %}
 
-  {% for item in products  %}
 
- {% comment %}  <a href="  {% url 'productview' item.category.slug  item.slug    %} ">
-  <br>
-  <img src="{{ item.product_image.url }}" class="card-img-top" alt="" style="width: 250px; height: 300px;">
-  <br>
-        
-    {{ item.name }} <br>
-    {{ item.price }} <b {% endcomment %}
+<div class="flex-container"> 
+  <div class="flex-box"> 
     
+      <div class="container" >
+        <div class="row">
+          <div class="col-sm" style="padding-bottom: 50px;"> 
+          <a href="{% url 'productview' item.category.slug  item.slug    %} ">
+            <div class="card" style="width: 18rem;">
+              <img src="{{ item.product_image.url }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title" style="color: black;">{{ item.name }}</h5>
+                <p class="card-text"></p>
+                <a href="#" class="btn  ">{{ item.price }}</a>
+              </div>
+            </div>
+          </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+{% endfor %}
+
+
+
+
+
 
 
   </a>
 
 
-      <div class="row ">
+      {% comment %} <div class="row ">
       <div class="col-md-3 ">
 
 
         <div class="container">
-          <a href="{% url 'productview' item.category.slug  item.slug    %} ">
+          
           <div class="card" style="width:200px">
-            <img class="card-img-top" src="{{ item.product_image.url }}" alt="Card image" style="width:100%">
+            <img class="card-img-top" src="" alt="Card image" style="width:100%">
             <div class="card-body">
               
               <p class="card-text">
-                {{ item.name }}
+                
                 <br>
-                {{ item.price }}
+                
               </p>
               
              
@@ -50,7 +72,7 @@
     
 
 
-  {% endfor %}
+   {% endcomment %}
 
 
 
