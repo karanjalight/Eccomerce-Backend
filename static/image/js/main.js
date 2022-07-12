@@ -471,7 +471,7 @@ Note: main.js, All Default Scripting Languages For This Theme Included In This F
 
     var $button = $(this);
     var oldValue = $button.parent().find("input").val();
-	console.log("wangui wa qty buttons")
+	console.log(" qty buttons")
     if ($button.hasClass('inc')) {
        var newVal = parseFloat(oldValue) + 1;
     } else {
@@ -485,12 +485,36 @@ Note: main.js, All Default Scripting Languages For This Theme Included In This F
     $button.parent().find("input").val(newVal);
    });
 
+
+   $(".qtybuttons").on("click", function() {
+
+    var $button = $(this);
+    var oldValue = $button.parent().find("input").val();
+	
+    if ($button.hasClass('inc')) {
+       var newVal = parseFloat(oldValue) + 1;
+    } else {
+        // Don't allow decrementing below zero
+       if (oldValue > 0) {
+         var newVal = parseFloat(oldValue) - 1;
+         } else {
+         newVal = 0;
+       }
+       }
+    $button.parent().find("input").val(newVal);
+   });
+
+
+
 $('.addToCartBtn').click(function (e){
 	e.preventDefault(); 
+
+	
 
 	var product_id = $(this).closest(".product_data").find(".prod_id").val();
 	var product_qty = $(this).closest(".product_data").find(".qty-input").val();
 	var token= $('input[name=csrfmiddlewaretoken]').val();
+	
 	
 
 
@@ -507,6 +531,7 @@ $('.addToCartBtn').click(function (e){
 		success:function (response) {
 			console.log(product_id)
 			console.log(product_qty)
+			console.log("bitches for breakfast")
 			
 
 		}
@@ -518,11 +543,11 @@ $('.addToCartBtn').click(function (e){
 
 
 
-$('.changeQuantity').click(function (e){
+$('.qtybutton').click(function (e){
 	e.preventDefault(); 
 
 	
-	console.log("bitches for breakfast")
+	
 
 	var product_id = $(this).closest(".product_data").find(".prod_id").val();
 	var product_qty = $(this).closest(".product_data").find(".qty-input").val();
@@ -541,8 +566,9 @@ $('.changeQuantity').click(function (e){
 
 		},
 		success:function (response) {
-			console.log(product_id)
-			console.log(product_qty)
+			console.log("product id =" + product_id)
+			console.log("product qty =" + product_qty)
+			console.log("bitches for breakfast")
 			
 
 		}

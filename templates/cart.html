@@ -6,7 +6,7 @@
 {% for item in cart %}
 
 
-<div class="card" style = " margin-bottom: 1%; margin-right: 19%; margin-left: 19%;">
+<div class="card  product_data" style = " margin-bottom: 1%; margin-right: 19%; margin-left: 19%;">
   <div class="card-body">
 
       <div class="row">
@@ -27,23 +27,33 @@
 
         <div class="col-sm-3 ">
           
-          <div class=" product_data">
+          <div class=" ">
             
                
                
                
                     <form action="#" class="cart-quantity">
                         {% csrf_token %}
-                        <input type="hidden" value="{{ products.id }}" class="prod_id" id="product_id"> 
+                        {% if item.product.quantity >= item.product_qty %}
+
+                        <input type="hidden" value="{{ item.product_id }}" class="prod_id" id="product_id"> 
                         
                         <div class="quantity">
-                            <label>Quantity</label>
+                            
                             <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box qty-input" value="1" type="text">
-                                <button class="dec qtybutton"><i class="fa fa-angle-down"></i></button >
-                                <button  class="inc qtybutton"><i class="fa fa-angle-up"></i></button >
-                            </div>
+                                <input class="cart-plus-minus-box qty-input" value="{{ item.product_qty  }}" type="text">
+                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                             </div>
                         </div>
+
+                        {% else %}
+
+                        <p > out of stock </p>
+
+                        {% endif %}
+
+
                         {% comment %} {% if products.quantity > 0   %}
                         <button class="add-to-cart addToCartBtn" type="submit">Add to cart</button>
                         {% endif    %} {% endcomment %}
@@ -51,9 +61,6 @@
                 </div>
 
             
-                
-                
-                
 
         </div>
 
