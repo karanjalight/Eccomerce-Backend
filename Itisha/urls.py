@@ -12,6 +12,8 @@ from shop import views as shop
 from shop import cart as cart
 
 
+from api import views as api
+
 #importing  inbuilt user authentication
 from django.contrib.auth import views as auth_views
 
@@ -33,6 +35,20 @@ urlpatterns = [
     path("cart", cart.viewcart , name='cart'),
     path("update-cart", cart.updatecart, name= 'updatecart'),
 
+
+
+    #this is version 1 v1 if api routes
+
+    path("v1/", api.homeData, name= 'home'),
+    path("v1/products/<str:slug>", api.productData, name= 'v1/products'),
+    path('v1/products/<str:cate_slug>/<str:prod_slug>',api.productDetailData, name='v1/ productview'),
+
+    
+
+
+    path('api-auth/', include('rest_framework.urls')),
+
+    # path('rest', include(api.urls)),
 
     
   

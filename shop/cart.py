@@ -64,7 +64,7 @@ def viewcart(request):
 
 def updatecart(request):
   if request.method == "POST":
-    prod_id = int(request.POST.get('product_id'))
+    prod_id = int(request.POST.get('product_id')) 
     print(prod_id)
 
     if (Cart.objects.filter(user=request.user, product_id=prod_id)):
