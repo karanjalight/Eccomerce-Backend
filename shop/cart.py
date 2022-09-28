@@ -4,12 +4,16 @@ from django.contrib import messages
 from .models import *
 
 def addtocart(request):
+  print("hello world")
   if request.method =='POST':
 
      if request.user.is_authenticated:
-      prod_id = int(request.POST.get('product_id'))
+      prod_id =  request.POST.get('product_id')
+      print(prod_id)
      
       product_check = Product.objects.get( id = prod_id)
+      print(product_check)
+
       if (product_check):
         if (Cart.objects.filter(user=request.user.id, product_id =prod_id)):
           return JsonResponse({'status':"Item added already!"})

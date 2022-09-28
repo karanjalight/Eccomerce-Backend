@@ -103,6 +103,9 @@
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
         <!-- Default theme -->
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+
+        {% comment %} fas fa icons {% endcomment %}
+        <script src="https://kit.fontawesome.com/687cfff67f.js" crossorigin="anonymous"></script>
         
     </head>
     <body>
@@ -244,10 +247,11 @@
                                             <li><a href="about-us.html">About Us</a></li>
                                           
 
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="#contactUs">Contact Us</a></li>
 
                                             {% if request.user.is_authenticated %}
-
+                                           
+                                            
                                             <li><a href="{% url 'logout' %}">logout</a></li>
 
                                             {% else %}
@@ -313,7 +317,7 @@
     
 
             <!-- Begin Footer Area -->
-            <div class="footer">
+            <div class="footer" id = "contactUs">
               <!-- Begin Footer Static Top Area -->
               <div class="footer-static-top">
                   <div class="container">
@@ -324,7 +328,7 @@
                               <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                                   <div class="li-shipping-inner-box">
                                       <div class="shipping-icon">
-                                          <img src="images/shipping-icon/1.png" alt="Shipping Icon">
+                                        <i style="font-size:45px" class="fa">&#xf21c;</i>
                                       </div>
                                       <div class="shipping-text">
                                           <h2>Free Delivery</h2>
@@ -337,7 +341,8 @@
                               <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                                   <div class="li-shipping-inner-box">
                                       <div class="shipping-icon">
-                                          <img src="images/shipping-icon/2.png" alt="Shipping Icon">
+                                        <i style="font-size:45px"  class="fa-brands fa-amazon-pay"></i>
+                                       
                                       </div>
                                       <div class="shipping-text">
                                           <h2>Safe Payment</h2>
@@ -350,7 +355,7 @@
                               <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                                   <div class="li-shipping-inner-box">
                                       <div class="shipping-icon">
-                                          <img src="images/shipping-icon/3.png" alt="Shipping Icon">
+                                        <i style='font-size:45px' class='far'>&#xf2b5;</i>
                                       </div>
                                       <div class="shipping-text">
                                           <h2>Shop with Confidence</h2>
@@ -363,7 +368,8 @@
                               <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                                   <div class="li-shipping-inner-box">
                                       <div class="shipping-icon">
-                                          <img src="images/shipping-icon/4.png" alt="Shipping Icon">
+                                        <i style='font-size:45px' class='far'>&#xf086;</i>
+
                                       </div>
                                       <div class="shipping-text">
                                           <h2>24/7 Help Center</h2>
@@ -473,7 +479,7 @@
       
       <script>
         alertify.set('notifier','position', 'bottom-right');
-        alertify.success('Hello'));
+        alertify.success('Hello');
       </script>
 
       

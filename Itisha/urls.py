@@ -27,9 +27,13 @@ urlpatterns = [
     #shop.collection is used to refer to the object in views.py, shop=(name of app), collectionsview=object name
 
     path('' , shop.home, name='home'),
+
+    path('add-to-cart' , shop.cart, name='home'),
+
+
     path('products/<str:slug>', shop.collectionsview, name='collectionsview'),
     path('products/<str:cate_slug>/<str:prod_slug>',shop.productview, name='productview'),
-    path("add-to-cart", cart.addtocart, name='addtocart'),
+   # path("add-to-cart", cart.addtocart, name='addtocart'),
 
 
     

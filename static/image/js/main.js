@@ -1,4 +1,4 @@
-/*--------------------------------------------------
+--------------------------------------------------
 Template Name: limupa;
 Description: limupa - Digital Products Store ECommerce Bootstrap 4 Template;
 Template URI:;
@@ -483,14 +483,19 @@ Note: main.js, All Default Scripting Languages For This Theme Included In This F
     $button.parent().find("input").val(newVal);
    });
 
+
+	 
+
+	 
 $('.addToCartBtn').click(function (e){
 	e.preventDefault(); 
-
-	var product_id = $(this).closest("product_data").find("prod_id").val();
-	var product_qty = $(this).closest("product_data").find("qty-input").val();
-	var token= $('input[name=csrfmiddlewaretoken]').val();
+  var product_id = $('prod_id').val();
+	console.log("wassup dude");
+	var product_qty = $('#prdct_qty').val();
 	
+	var token= $('input[name=csrfmiddlewaretoken]').val();
 
+	
 
 	$.ajax({
 		method:"POST",
@@ -566,4 +571,4 @@ $('.addToCartBtn').click(function (e){
 })(jQuery);
 /*----------------------------------------------------------------------------------------------------*/
 /*------------------------------------------> The End <-----------------------------------------------*/
-/*----------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------
