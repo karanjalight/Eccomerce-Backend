@@ -57,12 +57,20 @@ class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     product_qty= models.IntegerField(null=False,blank=False)
+<<<<<<< HEAD
     created_at = models.DateTimeField(auto_now_add= True)
 
     def __str__(self):
         return self.product.name
 
 
+=======
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username
+>>>>>>> ae498e151604dc75eba2bb09452a9fca479c9544
 
 
 

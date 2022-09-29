@@ -13,6 +13,7 @@ def home(request):
   return render(request, 'home.html' , context)
 
 
+<<<<<<< HEAD
 def cart(request):
   category = Category.objects.filter(status=0)
   context = {
@@ -21,6 +22,8 @@ def cart(request):
 
   return render(request, 'home.html' , context)
 
+=======
+>>>>>>> ae498e151604dc75eba2bb09452a9fca479c9544
 def collectionsview(request, slug):
   if(Category.objects.filter(slug=slug, status=0)):
     products = Product.objects.filter(category__slug=slug)

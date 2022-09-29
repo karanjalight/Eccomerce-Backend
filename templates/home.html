@@ -70,7 +70,7 @@
                             <h2>JUICE</h2>
                             <h3>Starting at <span> <strong> Ksh 150</span> </strong></h3>
                             <div class="default-btn slide-btn">
-                                <a class="links" href="shop-left-sidebar.html">Shop Now</a>
+                                <a class="links" href="#">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             <h2>ALCOHOL</h2>
                             <h3>Starting at <span>Ksh 250</span></h3>
                             <div class="default-btn slide-btn">
-                                <a class="links" href="shop-left-sidebar.html">Shop Now</a>
+                                <a class="links" href="#">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                             <h2>SODA</h2>
                             <h3>Starting at <span>Ksh 70</span></h3>
                             <div class="default-btn slide-btn">
-                                <a class="links" href="shop-left-sidebar.html">Shop Now</a>
+                                <a class="links" href="#">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -138,11 +138,38 @@
             </section>
 
 
+            <section>
 
-{% for item in category  %}
+                <div class="container">
+                    <div class="row">
+                    {% for item in category  %}
+                      <div class="col-md-4">
+                        <a href=" {% url 'collectionsview' item.slug %}">
+              
+                        <div class="card " style="width:370px; height:70%    ;">
+                            <img class="card-img-top" src="{{ item.image.url }}" alt="Card image" width="100%">
+                              <div class="card-body">
+                               
+                                 
+
+                                  <button type="button" class="btn btn-warning d-flex justify-content-center">{{ item.name }}</button>
+                             
+                                </div>
+                          </div>
+                        
+                      </div>
+                    {% endfor %}
+
+                    </div>
+                  </div>
+                
+            </section>
 
 
-  </a>
+
+
+
+  {% comment %} </a>
 
 
 
@@ -150,18 +177,7 @@
           <div class=" col-md-3 " style="display: inline-block"> 
 
             <div class="container">
-              <a href=" {% url 'collectionsview' item.slug %}">
-              <div class="card" style="width:200px">
-                <img class="card-img-top" src="{{ item.image.url }}" alt="Card image" style="width:100%">
-                <div class="card-body">
-                  
-                  <p class="card-text">
-                    {{ item.name }}
-                  </p>
-                 
-                </div>
-              </div>
-            </a>
+              
               
               
               
@@ -173,7 +189,7 @@
     </div>
   </section>
 
-  {% endfor %}
+  {% endcomment %}
  
 
  
