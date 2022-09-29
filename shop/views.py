@@ -9,7 +9,7 @@ def home(request):
   context = {
     'category': category
   }
-
+#comments
   return render(request, 'home.html' , context)
 
 
