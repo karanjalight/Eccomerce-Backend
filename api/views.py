@@ -1,4 +1,4 @@
-from rest_framework.response import Response
+""" from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from shop.models import *
 from .serializer import  *
@@ -57,3 +57,4 @@ def productDetailData(request ,  cate_slug , prod_slug):
      messages.error(request , "Sorry, You have encounter and error!")
      return redirect('home')
    
+ """

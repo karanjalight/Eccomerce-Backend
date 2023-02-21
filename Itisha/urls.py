@@ -30,31 +30,22 @@ urlpatterns = [
 
     path('' , shop.home, name='home'),
 
-    path('add-to-cart' , shop.cart, name='home'),
 
 
     path('products/<str:slug>', shop.collectionsview, name='collectionsview'),
     path('products/<str:cate_slug>/<str:prod_slug>',shop.productview, name='productview'),
-<<<<<<< HEAD
-   # path("add-to-cart", cart.addtocart, name='addtocart'),
-=======
     path("add-to-cart", cart.addtocart, name='addtocart'),
     path("cart", cart.viewcart , name='cart'),
     path("update-cart", cart.updatecart, name= 'updatecart'),
->>>>>>> ae498e151604dc75eba2bb09452a9fca479c9544
 
 
 
     #this is version 1 v1 if api routes
 
-    path("v1/", api.homeData, name= 'home'),
-    path("v1/products/<str:slug>", api.productData, name= 'v1/products'),
-    path('v1/products/<str:cate_slug>/<str:prod_slug>',api.productDetailData, name='v1/ productview'),
-
     
 
 
-    path('api-auth/', include('rest_framework.urls')),
+    
 
     # path('rest', include(api.urls)),
 

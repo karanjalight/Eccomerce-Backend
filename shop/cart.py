@@ -8,51 +8,41 @@ from .models import *
 
 
 def addtocart(request):
-  print("hello world")
+  
   if request.method =='POST':
 
-     if request.user.is_authenticated:
-<<<<<<< HEAD
-      prod_id =  request.POST.get('product_id')
-      print(prod_id)
+     print('======================----Post Form------========')
      
-      product_check = Product.objects.get( id = prod_id)
-      print(product_check)
+     if request.user.is_authenticated:
+      
+       print('================---------User Auth------========')
 
-      if (product_check):
-=======
-       print('hello world')
        prod_id = request.POST.get('product_id')
        print( "Product id = ", prod_id )
      
        product_check = Product.objects.get( id = prod_id)
-       
+       print( "Product name = ",product_check.quantity)      
 
        if (product_check):
->>>>>>> ae498e151604dc75eba2bb09452a9fca479c9544
         if (Cart.objects.filter(user=request.user.id, product_id =prod_id)):
           return JsonResponse({'status':"Item added already!"})
 
         else:
           prod_qty = int(request.POST.get('product_qty'))
 
-
-          print(prod_qty )
-
+          
           if product_check.quantity >= prod_qty:
             Cart.objects.create(user=request.user, product_id = prod_id, product_qty=prod_qty)
             print("Product Added Sucessfully")
+            product_check = Product.objects.get( id = prod_id)
+            print( "Product quantity = ",product_check.quantity) 
             
 
 
             return JsonResponse({'status':"Product Added Sucessfully  ;"})
-            
-          else :
-            return JsonResponse({'status':"AVAILABLE"})
-      
-       else: 
-        return JsonResponse({'status':"Sorry! Product does not exist"})
 
+        
+            
 
      else:
         return JsonResponse({'status':"login to continue"})
@@ -63,11 +53,8 @@ def addtocart(request):
 
 
 def viewcart(request):
+  print('===================--------View cart---------======================')
   cart = Cart.objects.filter(user=request.user)
-  
-  
- 
-   
   context={ 'cart':cart }
 
   return render(request, "cart.html", context)

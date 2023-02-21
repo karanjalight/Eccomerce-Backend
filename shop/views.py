@@ -4,6 +4,21 @@ from django.shortcuts import redirect, render
 from .models import *
 from django.contrib import messages
 
+
+
+
+
+def index(request):
+  product = Product.objects.all()
+  return (request, 'home.html')
+
+
+
+
+
+
+
+
 def home(request):
   category = Category.objects.filter(status=0)
   context = {
@@ -13,17 +28,6 @@ def home(request):
   return render(request, 'home.html' , context)
 
 
-<<<<<<< HEAD
-def cart(request):
-  category = Category.objects.filter(status=0)
-  context = {
-    'category': category
-  }
-
-  return render(request, 'home.html' , context)
-
-=======
->>>>>>> ae498e151604dc75eba2bb09452a9fca479c9544
 def collectionsview(request, slug):
   if(Category.objects.filter(slug=slug, status=0)):
     products = Product.objects.filter(category__slug=slug)
